@@ -9,33 +9,25 @@ Method (_DSM, 4, NotSerialized)\n
     If (LEqual (Arg2, Zero)) { Return (Buffer() { 0x03 } ) }\n
     Return (Package()\n
     {\n
-        // Note: Function key part seems to not be necessary\n
-        // "AAPL,has-embedded-fn-keys", Buffer() { 0x01, 0x00, 0x00, 0x00 },\n
         "RM,oem-id", "HPQOEM",\n
     })\n
 }\n
 end;
 
-into method label _Q13 parent_label H_EC replace_content
+# Make EC-based brightness up/down work with RehabMan VoodooPS2 ACPI keyboard mechanism
+
+into method label _Q10 replace_content
 begin
-Store(HKNO, Local0)\n
-If (LEqual(Local0,7))\n
-{\n
 // Brightness Down\n
     Notify(\_SB.PCI0.LPCB.PS2K, 0x0205)\n
     Notify(\_SB.PCI0.LPCB.PS2K, 0x0285)\n
-}\n
-If (LEqual(Local0,8))\n
-{\n
+end;
+into method label _Q11 replace_content
+begin
 // Brightness Up\n
     Notify(\_SB.PCI0.LPCB.PS2K, 0x0206)\n
     Notify(\_SB.PCI0.LPCB.PS2K, 0x0286)\n
-}\n
-If (LEqual(Local0,4))\n
-{\n
-// Mirror toggle\n
-    Notify(\_SB.PCI0.LPCB.PS2K, 0x026e)\n
-    Notify(\_SB.PCI0.LPCB.PS2K, 0x02ee)\n
-}\n
 end;
+
+
 
