@@ -148,9 +148,9 @@
 		<array>
 			<dict>
 				<key>Comment</key>
-				<string>AppleHDA IDT 76e0 #1</string>
+				<string>AppleHDA ALC283 (1 of 3)</string>
 				<key>Find</key>
-				<data>PYQZ1BE=</data>
+				<data>PYQI7BA=</data>
 				<key>Name</key>
 				<string>AppleHDA</string>
 				<key>Replace</key>
@@ -158,13 +158,23 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>AppleHDA IDT 76e0 #2</string>
+				<string>AppleHDA ALC283 (2 of 3)</string>
 				<key>Find</key>
-				<data>PYsZ1BE=</data>
+				<data>PYUI7BA=</data>
 				<key>Name</key>
 				<string>AppleHDA</string>
 				<key>Replace</key>
-				<data>PeB2HRE=</data>
+				<data>PQAAAAA=</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>AppleHDA ALC283 (3 of 3)</string>
+				<key>Find</key>
+				<data>PYQZ1BE=</data>
+				<key>Name</key>
+				<string>AppleHDA</string>
+				<key>Replace</key>
+				<data>PZAC7BA=</data>
 			</dict>
 			<dict>
 				<key>Comment</key>

@@ -113,7 +113,7 @@ fi
 
 # install (injector) kexts in the repo itself
 
-install_kext AppleHDA_IDT76e0_Envy.kext
+install_kext AppleHDA_ALC290.kext
 #install_kext AirPort_AR9280_as_AR946x.kext
 
 #check_directory *.kext

@@ -5,14 +5,18 @@
 	<key>HDAConfigDefault</key>
 	<array>
 		<dict>
+			<key>AFGLowPowerState</key>
+			<data>AwAAAA==</data>
+			<key>Codec</key>
+			<string>Mirone - Realtek ALC290</string>
 			<key>CodecID</key>
-			<integer>287143648</integer>
+			<integer>283902608</integer>
 			<key>ConfigData</key>
-			<data>AKccAACnHRAApx6BAKcfAQC3HBAAtx0QALceIQC3HwMAxxwgAMcdAADHHgAAxx9JARccMAEXHQABFx6gARcfmQD3HEAA9x0BAPceFwD3H5kA5xxQAOcdEADnHgEA5x8jAQccYAEHHQABBx4AAQcfSQH3HHAB9x0AAfceAAH3H0kCBxyAAgcdAAIHHgACBx9J</data>
+			<data>AUccEAFHHQABRx4XAUcfkAFXHCABVx0QAVceIQFXHwIBlxwwAZcdAAGXHqABlx+QAaccQAGnHRABpx6BAacfAQFHDAI=</data>
 			<key>FuncGroup</key>
 			<integer>1</integer>
 			<key>LayoutID</key>
-			<integer>12</integer>
+			<integer>3</integer>
 		</dict>
 	</array>
 </dict>

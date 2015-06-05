@@ -46,4 +46,4 @@ fi
     echo " Done."
 }
 
-createAppleHDAInjector "IDT76e0_Envy"
+createAppleHDAInjector "ALC290"
