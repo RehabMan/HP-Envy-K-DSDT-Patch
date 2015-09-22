@@ -1,7 +1,6 @@
 #
 # Inject 0xa260006 for graphics
 #
-
 into method label _DSM parent_adr 0x00020000 remove_entry;
 into device name_adr 0x00020000 insert
 begin
@@ -23,8 +22,20 @@ end;
 # Make a slight change to the backlight patch...
 # by changing LMAX to 0, will use the BIOS value (0x3a9)
 #
-
 into device label PNLF code_regex Name.*\(LMAX,.*\) replace_matched begin Name (LMAX, 0) end;
 
-
+#
+# Override some properties for IntelBacklight.kext
+# Override PWMMax to zero to use BIOS level (u430 happens to be 0x3a9)
+#
+into device label PNLF insert
+begin
+Method(RMCF)\n
+{\n
+    Return(Package()\n
+    {\n
+        "PWMMax", 0,\n
+    })
+}\n
+end;
 
