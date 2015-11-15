@@ -176,7 +176,7 @@
 	<key>Boot</key>
 	<dict>
 		<key>Arguments</key>
-		<string>kext-dev-mode=1 nv_disable=1</string>
+		<string>kext-dev-mode=1 nv_disable=1 dart=0</string>
 		<key>Legacy</key>
 		<string>PBR</string>
 		<key>Log</key>
@@ -456,9 +456,9 @@
 		<array>
 			<dict>
 				<key>Comment</key>
-				<string>AppleHDA IDT 76e0 (1 of 3)</string>
+				<string>AppleHDA ALC290 (1 of4)</string>
 				<key>Find</key>
-				<data>PYQZ1BE=</data>
+				<data>PYQI7BA=</data>
 				<key>Name</key>
 				<string>AppleHDA</string>
 				<key>Replace</key>
@@ -466,23 +466,43 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>AppleHDA IDT 76e0 (2 of 3)</string>
+				<string>AppleHDA ALC290 (2 of 4)</string>
 				<key>Find</key>
-				<data>PYsZ1BE=</data>
+				<data>PYUI7BA=</data>
 				<key>Name</key>
 				<string>AppleHDA</string>
 				<key>Replace</key>
-				<data>PeB2HRE=</data>
+				<data>PQAAAAA=</data>
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>AppleHDA IDT 76e0 (3 of 3)</string>
+				<string>AppleHDA ALC290 (3 of 4)</string>
+				<key>Find</key>
+				<data>PYQZ1BE=</data>
+				<key>Name</key>
+				<string>AppleHDA</string>
+				<key>Replace</key>
+				<data>PZAC7BA=</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>AppleHDA ALC290 (4 of 4)</string>
 				<key>Find</key>
 				<data>PYMZ1BE=</data>
 				<key>Name</key>
 				<string>AppleHDA</string>
 				<key>Replace</key>
 				<data>PQAAAAA=</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>Enable USB3 post wake</string>
+				<key>Find</key>
+				<data>xoDIAAAAAQ==</data>
+				<key>Name</key>
+				<string>#AppleUSBXHCI</string>
+				<key>Replace</key>
+				<data>xoDIAAAAAA==</data>
 			</dict>
 			<dict>
 				<key>Comment</key>
@@ -526,13 +546,23 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>HDMI-audio, port 0204, 0x0a260005 0x0a260006</string>
+				<string>HDMI-audio, port 0105(12), 0x0a260005 0x0a260006, 0x0d220003, 0x0a2e000a, 0x0a26000a</string>
+				<key>Name</key>
+				<string>AppleIntelFramebufferAzul</string>
+				<key>Find</key>
+				<data>AQUJAAAEAACHAAAA</data>
+				<key>Replace</key>
+				<data>AQUSAAAIAACHAAAA</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>HDMI-audio, port 0204(12), 0x0a260005 0x0a260006</string>
 				<key>Find</key>
 				<data>AgQJAAAEAACHAAAA</data>
 				<key>Name</key>
 				<string>AppleIntelFramebufferAzul</string>
 				<key>Replace</key>
-				<data>AgQJAAAIAACHAAAA</data>
+				<data>AgQSAAAIAACHAAAA</data>
 			</dict>
 			<dict>
 				<key>Comment</key>
@@ -543,6 +573,26 @@
 				<string>IOAHCIBlockStorage</string>
 				<key>Replace</key>
 				<data>AAAAAAAAAAAAAAA=</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>Boot graphics glitch, 10.10.0/10.10.1 (1 of 2)</string>
+				<key>Find</key>
+				<data>hcB0XUg=</data>
+				<key>Name</key>
+				<string>#IOGraphicsFamily</string>
+				<key>Replace</key>
+				<data>McB0W0g=</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>Boot graphics glitch, 10.10.0/10.10.1 (2 of 2)</string>
+				<key>Find</key>
+				<data>QYjE6wM=</data>
+				<key>Name</key>
+				<string>#IOGraphicsFamily</string>
+				<key>Replace</key>
+				<data>QYjE6yM=</data>
 			</dict>
 			<dict>
 				<key>Comment</key>
