@@ -50,14 +50,6 @@
 				</dict>
 				<dict>
 					<key>Comment</key>
-					<string>change Method(XSEL,0,S) to XXEL</string>
-					<key>#Find</key>
-					<data>WFNFTAg=</data>
-					<key>Replace</key>
-					<data>WFhFTAg=</data>
-				</dict>
-				<dict>
-					<key>Comment</key>
 					<string>change Method(GPRW,2,N) to XPRW</string>
 					<key>Find</key>
 					<data>R1BSVwI=</data>
@@ -378,7 +370,7 @@
 						<key>Comment</key>
 						<string>No XHC to EHC port routing for USB2</string>
 						<key>Key</key>
-						<string>#RM,pr2-force</string>
+						<string>RM,pr2-force</string>
 						<key>Value</key>
 						<data>/z8AAA==</data>
 					</dict>
@@ -573,26 +565,6 @@
 				<string>IOAHCIBlockStorage</string>
 				<key>Replace</key>
 				<data>AAAAAAAAAAAAAAA=</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>Boot graphics glitch, 10.10.0/10.10.1 (1 of 2)</string>
-				<key>Find</key>
-				<data>hcB0XUg=</data>
-				<key>Name</key>
-				<string>#IOGraphicsFamily</string>
-				<key>Replace</key>
-				<data>McB0W0g=</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>Boot graphics glitch, 10.10.0/10.10.1 (2 of 2)</string>
-				<key>Find</key>
-				<data>QYjE6wM=</data>
-				<key>Name</key>
-				<string>#IOGraphicsFamily</string>
-				<key>Replace</key>
-				<data>QYjE6yM=</data>
 			</dict>
 			<dict>
 				<key>Comment</key>
