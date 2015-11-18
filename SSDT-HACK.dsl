@@ -97,7 +97,7 @@ DefinitionBlock ("SSDT-HACK.aml", "SSDT", 1, "hack", "hack", 0x00003000)
             // XHC overrides
             "8086_9xxx", Package()
             {
-                //"port-count", Buffer() { 0x15, 0, 0, 0 },
+                //"port-count", Buffer() { 0xd, 0, 0, 0 },
                 "ports", Package()
                 {
                     "HS01", Package()
@@ -123,17 +123,17 @@ DefinitionBlock ("SSDT-HACK.aml", "SSDT", 1, "hack", "hack", 0x00003000)
                     "SS01", Package()
                     {
                         "UsbConnector", 3,
-                        "port", Buffer() { 0x10, 0, 0, 0 },
+                        "port", Buffer() { 0xa, 0, 0, 0 },
                     },
                     "SS02", Package()
                     {
                         "UsbConnector", 3,
-                        "port", Buffer() { 0x11, 0, 0, 0 },
+                        "port", Buffer() { 0xb, 0, 0, 0 },
                     },
                     "SS03", Package()
                     {
                         "UsbConnector", 3,
-                        "port", Buffer() { 0x12, 0, 0, 0 },
+                        "port", Buffer() { 0xc, 0, 0, 0 },
                     },
                 },
             },
