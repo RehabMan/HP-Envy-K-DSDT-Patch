@@ -61,6 +61,26 @@ DefinitionBlock ("SSDT-HACK.aml", "SSDT", 1, "hack", "hack", 0x00003000)
         Return(XPRW(Arg0, Arg1))
     }
 
+    // In DSDT, native XSEL is renamed XXEL with Clover binpatch.
+    // Calls to it will land here.
+    External(_SB.PCI0.XHC, DeviceObj)
+    External(_SB.PCI0.XHC.PR2, FieldUnitObj)
+    External(_SB.PCI0.XHC.PR2M, FieldUnitObj)
+    External(_SB.PCI0.XHC.PR3, FieldUnitObj)
+    External(_SB.PCI0.XHC.PR3M, FieldUnitObj)
+    External(_SB.PCI0.LPCB.XUSB, FieldUnitObj)
+    External(_SB.PCI0.XHC.XRST, IntObj)
+    Method(_SB.PCI0.XHC.XSEL)
+    {
+        // This code is based on original XSEL, but without all the conditionals
+        // With this code, USB works correctly even in 10.10 after booting Windows
+        // setup to route all USB2 on XHCI to XHCI (not EHCI, which is disabled)
+        Store(1, \_SB.PCI0.LPCB.XUSB)
+        Store(1, XRST)
+        Or(And (PR3, 0xFFFFFFC0), PR3M, PR3)
+        Or(And (PR2, 0xFFFF8000), PR2M, PR2)
+    }
+
     // Override for USBInjectAll.kext
     Device(UIAC)
     {
@@ -75,7 +95,7 @@ DefinitionBlock ("SSDT-HACK.aml", "SSDT", 1, "hack", "hack", 0x00003000)
             },
             // EH02 not present
             // XHC overrides
-            "8086_8xxx", Package()
+            "8086_9xxx", Package()
             {
                 //"port-count", Buffer() { 0x15, 0, 0, 0 },
                 "ports", Package()

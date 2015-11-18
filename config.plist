@@ -128,6 +128,14 @@
 					<key>Replace</key>
 					<data>X1NCX1BDSTBJR1BVWERTTQ==</data>
 				</dict>
+				<dict>
+					<key>Comment</key>
+					<string>change Method(XSEL,0,S) to XXEL</string>
+					<key>Find</key>
+					<data>WFNFTAg=</data>
+					<key>Replace</key>
+					<data>WFhFTAg=</data>
+				</dict>
 			</array>
 			<key>Fixes</key>
 			<dict>
