@@ -7,12 +7,12 @@
 		<dict>
 			<key>AFGLowPowerState</key>
 			<data>AwAAAA==</data>
-			<key>Codec</key>
-			<string>Mirone - Realtek ALC290</string>
 			<key>CodecID</key>
 			<integer>283902608</integer>
+			<key>Comment</key>
+			<string>macpeetALC</string>
 			<key>ConfigData</key>
-			<data>AUccEAFHHQABRx4XAUcfkAFXHCABVx0QAVceIQFXHwIBlxwwAZcdAAGXHqABlx+QAaccQAGnHRABpx6BAacfAQFHDAI=</data>
+			<data>AaccIAGnHRABpx6BAacfAAEnHDABJx0AASceowEnH5ABRxxAAUcdAAFHHhcBRx+QAVccUAFXHRABVx4hAVcfAAFHDAI=</data>
 			<key>FuncGroup</key>
 			<integer>1</integer>
 			<key>LayoutID</key>

@@ -5,6 +5,8 @@
 	<key>PathMaps</key>
 	<array>
 		<dict>
+			<key>Comment</key>
+			<string>macpeetALC</string>
 			<key>PathMap</key>
 			<array>
 				<array>
@@ -46,7 +48,7 @@
 							</dict>
 							<dict>
 								<key>NodeID</key>
-								<integer>25</integer>
+								<integer>26</integer>
 							</dict>
 						</array>
 					</array>
@@ -88,7 +90,7 @@
 							</dict>
 							<dict>
 								<key>NodeID</key>
-								<integer>26</integer>
+								<integer>18</integer>
 							</dict>
 						</array>
 					</array>

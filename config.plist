@@ -374,14 +374,6 @@
 						<key>Value</key>
 						<integer>2100</integer>
 					</dict>
-					<dict>
-						<key>Comment</key>
-						<string>No XHC to EHC port routing for USB2</string>
-						<key>Key</key>
-						<string>#RM,pr2-force</string>
-						<key>Value</key>
-						<data>/z8AAA==</data>
-					</dict>
 				</array>
 			</dict>
 		</array>
