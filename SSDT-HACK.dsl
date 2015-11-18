@@ -87,12 +87,28 @@ DefinitionBlock ("SSDT-HACK.aml", "SSDT", 1, "hack", "hack", 0x00003000)
         Name(_HID, "UIA00000")
         Name(RMCF, Package()
         {
+            #if 0
             // EH01 has no ports (XHCIMux is used to force USB3 routing OFF)
             "EH01", Package()
             {
                 "port-count", Buffer() { 0, 0, 0, 0 },
                 "ports", Package() { },
             },
+            #else
+            // EH01 has no ports (XHCIMux is used to force USB3 routing OFF)
+            "EH01", Package()
+            {
+                "port-count", Buffer() { 8, 0, 0, 0 },
+                "ports", Package()
+                {
+                    "PR11", Package()
+                    {
+                        "UsbConnector", 255,
+                        "port", Buffer() { 0x01, 0, 0, 0 },
+                    },
+                },
+            },
+            #endif
             // EH02 not present
             // XHC overrides
             "8086_9xxx", Package()
@@ -144,7 +160,7 @@ DefinitionBlock ("SSDT-HACK.aml", "SSDT", 1, "hack", "hack", 0x00003000)
 //
 // Disabling EHCI #1
 //
-
+#if 0
     External(_SB.PCI0.EH01, DeviceObj)
     Scope(_SB.PCI0)
     {
@@ -186,7 +202,7 @@ DefinitionBlock ("SSDT-HACK.aml", "SSDT", 1, "hack", "hack", 0x00003000)
             }
         }
     }
-
+#endif
 
 //
 // Backlight control
