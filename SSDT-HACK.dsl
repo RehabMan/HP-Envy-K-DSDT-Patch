@@ -61,26 +61,6 @@ DefinitionBlock ("SSDT-HACK.aml", "SSDT", 1, "hack", "hack", 0x00003000)
         Return(XPRW(Arg0, Arg1))
     }
 
-    // In DSDT, native XSEL is renamed XXEL with Clover binpatch.
-    // Calls to it will land here.
-    External(_SB.PCI0.XHC, DeviceObj)
-    External(_SB.PCI0.XHC.PR2, FieldUnitObj)
-    External(_SB.PCI0.XHC.PR2M, FieldUnitObj)
-    External(_SB.PCI0.XHC.PR3, FieldUnitObj)
-    External(_SB.PCI0.XHC.PR3M, FieldUnitObj)
-    External(_SB.PCI0.LPCB.XUSB, FieldUnitObj)
-    External(_SB.PCI0.XHC.XRST, IntObj)
-    Method(_SB.PCI0.XHC.XSEL)
-    {
-        // This code is based on original XSEL, but without all the conditionals
-        // With this code, USB works correctly even in 10.10 after booting Windows
-        // setup to route all USB2 on XHCI to XHCI (not EHCI, which is disabled)
-        Store(1, \_SB.PCI0.LPCB.XUSB)
-        Store(1, XRST)
-        Or(And (PR3, 0xFFFFFFC0), PR3M, PR3)
-        Or(And (PR2, 0xFFFF8000), PR2M, PR2)
-    }
-
     // Override for USBInjectAll.kext
     Device(UIAC)
     {
@@ -122,11 +102,7 @@ DefinitionBlock ("SSDT-HACK.aml", "SSDT", 1, "hack", "hack", 0x00003000)
                         "port", Buffer() { 0x03, 0, 0, 0 },
                     },
                     // HP14 not used
-                    "HP15", Package()   // not sure
-                    {
-                        "UsbConnector", 255,
-                        "port", Buffer() { 0x05, 0, 0, 0 },
-                    },
+                    // HP15 not used
                     "HP16", Package()   // USB2 routed from XHC
                     {
                         "UsbConnector", 0,
@@ -148,28 +124,6 @@ DefinitionBlock ("SSDT-HACK.aml", "SSDT", 1, "hack", "hack", 0x00003000)
                 "ports", Package()
                 {
                     // HSxx ports not used due to FakePCIID_XHCIMux
-                    #if 0
-                    "HS01", Package()
-                    {
-                        "UsbConnector", 3,
-                        "port", Buffer() { 0x01, 0, 0, 0 },
-                    },
-                    "HS02", Package()
-                    {
-                        "UsbConnector", 3,
-                        "port", Buffer() { 0x02, 0, 0, 0 },
-                    },
-                    "HS06", Package()
-                    {
-                        "UsbConnector", 255,
-                        "port", Buffer() { 0x06, 0, 0, 0 },
-                    },
-                    "HS08", Package()
-                    {
-                        "UsbConnector", 255,
-                        "port", Buffer() { 0x08, 0, 0, 0 },
-                    },
-                    #endif
                     "SS01", Package()   // USB3
                     {
                         "UsbConnector", 3,
