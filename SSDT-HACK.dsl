@@ -39,6 +39,20 @@ DefinitionBlock ("", "SSDT", 2, "hack", "hack", 0)
     }
 
 //
+// Power management with X86PlatformPlugin.kext
+//
+
+    External(\_PR.CPU0, DeviceObj)
+    Method (\_PR.CPU0._DSM, 4)
+    {
+        If (!Arg2) { Return (Buffer() { 0x03 } ) }
+        Return (Package()
+        {
+            "plugin-type", 1
+        })
+    }
+
+//
 // ACPISensors configuration (ACPISensors.kext is not installed by default)
 //
 
@@ -319,8 +333,8 @@ DefinitionBlock ("", "SSDT", 2, "hack", "hack", 0)
         })
     }
 
-    External(_SB.PCI0.LPCB.EC0, DeviceObj)
-    Scope(_SB.PCI0.LPCB.EC0)
+    External(_SB.PCI0.LPCB.EC, DeviceObj)
+    Scope(_SB.PCI0.LPCB.EC)
     {
         // The native _Qxx methods in DSDT are renamed XQxx,
         // so notifications from the EC driver will land here.
@@ -349,7 +363,7 @@ DefinitionBlock ("", "SSDT", 2, "hack", "hack", 0)
         "StartupDelay", 10,
     })
 
-    Scope(_SB.PCI0.LPCB.EC0)
+    Scope(_SB.PCI0.LPCB.EC)
     {
         // This is an override for battery methods that access EC fields
         // larger than 8-bit.
@@ -692,7 +706,7 @@ DefinitionBlock ("", "SSDT", 2, "hack", "hack", 0)
     {
         Method (UPBI, 0, NotSerialized)
         {
-            Store (B1B2(^^PCI0.LPCB.EC0.FCC0,^^PCI0.LPCB.EC0.FCC1), Local5)
+            Store (B1B2(^^PCI0.LPCB.EC.FCC0,^^PCI0.LPCB.EC.FCC1), Local5)
             If (LAnd (Local5, LNot (And (Local5, 0x8000))))
             {
                 ShiftRight (Local5, 0x05, Local5)
@@ -701,7 +715,7 @@ DefinitionBlock ("", "SSDT", 2, "hack", "hack", 0)
                 Store (Local5, Index (PBIF, 0x02))
                 Divide (Local5, 0x64, , Local2)
                 Add (Local2, One, Local2)
-                If (LLess (B1B2(^^PCI0.LPCB.EC0.ADC0,^^PCI0.LPCB.EC0.ADC1), 0x0C80))
+                If (LLess (B1B2(^^PCI0.LPCB.EC.ADC0,^^PCI0.LPCB.EC.ADC1), 0x0C80))
                 {
                     Multiply (Local2, 0x0E, Local4)
                     Add (Local4, 0x02, Index (PBIF, 0x05))
@@ -732,10 +746,10 @@ DefinitionBlock ("", "SSDT", 2, "hack", "hack", 0)
                 Add (Local4, 0x02, FABL)
             }
 
-            If (^^PCI0.LPCB.EC0.MBNH)
+            If (^^PCI0.LPCB.EC.MBNH)
             {
-                Store (^^PCI0.LPCB.EC0.BVLB, Local0)
-                Store (^^PCI0.LPCB.EC0.BVHB, Local1)
+                Store (^^PCI0.LPCB.EC.BVLB, Local0)
+                Store (^^PCI0.LPCB.EC.BVHB, Local1)
                 ShiftLeft (Local1, 0x08, Local1)
                 Or (Local0, Local1, Local0)
                 Store (Local0, Index (PBIF, 0x04))
@@ -744,8 +758,8 @@ DefinitionBlock ("", "SSDT", 2, "hack", "hack", 0)
             }
             Else
             {
-                Store (^^PCI0.LPCB.EC0.BVLB, Local0)
-                Store (^^PCI0.LPCB.EC0.BVHB, Local1)
+                Store (^^PCI0.LPCB.EC.BVLB, Local0)
+                Store (^^PCI0.LPCB.EC.BVHB, Local1)
                 ShiftLeft (Local1, 0x08, Local1)
                 Or (Local0, Local1, Local0)
                 Store (Local0, Index (PBIF, 0x04))
@@ -759,7 +773,7 @@ DefinitionBlock ("", "SSDT", 2, "hack", "hack", 0)
         }
         Method (UPBS, 0, NotSerialized)
         {
-            Store (B1B2(^^PCI0.LPCB.EC0.CUR0,^^PCI0.LPCB.EC0.CUR1), Local0)
+            Store (B1B2(^^PCI0.LPCB.EC.CUR0,^^PCI0.LPCB.EC.CUR1), Local0)
             If (And (Local0, 0x8000))
             {
                 If (LEqual (Local0, 0xFFFF))
@@ -779,7 +793,7 @@ DefinitionBlock ("", "SSDT", 2, "hack", "hack", 0)
                 Store (Local0, Index (PBST, One))
             }
 
-            Store (B1B2(^^PCI0.LPCB.EC0.BRM0,^^PCI0.LPCB.EC0.BRM1), Local5)
+            Store (B1B2(^^PCI0.LPCB.EC.BRM0,^^PCI0.LPCB.EC.BRM1), Local5)
             If (LNot (And (Local5, 0x8000)))
             {
                 ShiftRight (Local5, 0x05, Local5)
@@ -790,26 +804,26 @@ DefinitionBlock ("", "SSDT", 2, "hack", "hack", 0)
                 }
             }
 
-            If (LAnd (LNot (^^PCI0.LPCB.EC0.SW2S), LEqual (^^PCI0.LPCB.EC0.BACR, One)))
+            If (LAnd (LNot (^^PCI0.LPCB.EC.SW2S), LEqual (^^PCI0.LPCB.EC.BACR, One)))
             {
                 Store (FABL, Index (PBST, 0x02))
             }
 
-            Store (B1B2(^^PCI0.LPCB.EC0.BCV0,^^PCI0.LPCB.EC0.BCV1), Index (PBST, 0x03))
-            Store (^^PCI0.LPCB.EC0.MBST, Index (PBST, Zero))
+            Store (B1B2(^^PCI0.LPCB.EC.BCV0,^^PCI0.LPCB.EC.BCV1), Index (PBST, 0x03))
+            Store (^^PCI0.LPCB.EC.MBST, Index (PBST, Zero))
         }
     }
 
     Method (\_SB.PCI0.ACEL.CLRI, 0, Serialized)
     {
         Store (Zero, Local0)
-        If (LEqual (^^LPCB.EC0.ECOK, One))
+        If (LEqual (^^LPCB.EC.ECOK, One))
         {
-            If (LEqual (^^LPCB.EC0.SW2S, Zero))
+            If (LEqual (^^LPCB.EC.SW2S, Zero))
             {
                 If (LEqual (^^^BAT0._STA (), 0x1F))
                 {
-                    If (LLessEqual (B1B2(^^LPCB.EC0.BRM0,^^LPCB.EC0.BRM1), 0x96))
+                    If (LLessEqual (B1B2(^^LPCB.EC.BRM0,^^LPCB.EC.BRM1), 0x96))
                     {
                         Store (One, Local0)
                     }
