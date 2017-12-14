@@ -166,8 +166,6 @@
 		<false/>
 		<key>Timeout</key>
 		<integer>5</integer>
-		<key>XMPDetection</key>
-		<false/>
 	</dict>
 	<key>CPU</key>
 	<dict>
