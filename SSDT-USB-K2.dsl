@@ -29,7 +29,7 @@
                 {
                     "HP11", Package()   // USB2 routed from XHC
                     {
-                        "port", Buffer() { 2, 0, 0, 0 },
+                        "port", Buffer() { 1, 0, 0, 0 },
                     },
                     "HP12", Package()   // USB2 routed from XHC
                     {
