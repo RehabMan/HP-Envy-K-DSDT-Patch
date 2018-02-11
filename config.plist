@@ -562,12 +562,24 @@
 			<dict>
 				<key>Comment</key>
 				<string>HDMI-audio, port 0204(12), 0x0a260005 0x0a260006</string>
+				<key>Disabled</key>
+				<true/>
 				<key>Name</key>
 				<string>com.apple.driver.AppleIntelFramebufferAzul</string>
 				<key>Find</key>
 				<data>AgQJAAAEAACHAAAA</data>
 				<key>Replace</key>
 				<data>AgQSAAAIAACHAAAA</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>disable port 0204 for lag, 0x0a260005 0x0a260006</string>
+				<key>Name</key>
+				<string>com.apple.driver.AppleIntelFramebufferAzul</string>
+				<key>Find</key>
+				<data>AgQJAAAEAACHAAAA</data>
+				<key>Replace</key>
+				<data>/wAAAAEAAABAAAAA</data>
 			</dict>
 			<dict>
 				<key>Comment</key>
