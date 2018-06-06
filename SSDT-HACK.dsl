@@ -6,7 +6,7 @@
 
 // Note: No solution for missing IAOE here, but so far, not a problem.
 
-DefinitionBlock ("", "SSDT", 2, "hack", "hack", 0)
+DefinitionBlock("", "SSDT", 2, "hack", "_HACK", 0)
 {
     External(_SB.PCI0, DeviceObj)
     External(_SB.PCI0.LPCB, DeviceObj)
@@ -39,20 +39,6 @@ DefinitionBlock ("", "SSDT", 2, "hack", "hack", 0)
     }
 
 //
-// Power management with X86PlatformPlugin.kext
-//
-
-    External(\_PR.CPU0, DeviceObj)
-    Method (\_PR.CPU0._DSM, 4)
-    {
-        If (!Arg2) { Return (Buffer() { 0x03 } ) }
-        Return (Package()
-        {
-            "plugin-type", 1
-        })
-    }
-
-//
 // ACPISensors configuration (ACPISensors.kext is not installed by default)
 //
 
@@ -73,6 +59,14 @@ DefinitionBlock ("", "SSDT", 2, "hack", "hack", 0)
         If (0x6d == Arg0) { Return(Package() { 0x6d, 0 }) }
         External(\XPRW, MethodObj)
         Return(XPRW(Arg0, Arg1))
+    }
+
+    // XWAK causes issues on wake from sleep (for some models), so it is disabled
+    // by renaming to XXAK in DSDT (via config.plist) and overriden here to do nothing.
+    //External(_SB.PCI0.XHC.XXAK, MethodObj)
+    Method(_SB.PCI0.XHC.XWAK, 0, NotSerialized)
+    {
+        // nothing
     }
 
 #ifdef ENVY_K1

@@ -1,6 +1,6 @@
 // USB configuration for Envy K with 8086_8c31 xHCI
 
-//DefinitionBlock ("", "SSDT", 2, "hack", "hack", 0)
+//DefinitionBlock("", "SSDT", 2, "hack", "_USB-K2", 0)
 //{
     // Override for USBInjectAll.kext
     Device(UIAC)

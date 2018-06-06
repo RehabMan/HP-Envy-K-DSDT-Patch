@@ -79,6 +79,14 @@
 				</dict>
 				<dict>
 					<key>Comment</key>
+					<string>change Method(XWAK,0,S) to XXAK</string>
+					<key>Find</key>
+					<data>WFdBSwg=</data>
+					<key>Replace</key>
+					<data>WlhBSwg=</data>
+				</dict>
+				<dict>
+					<key>Comment</key>
 					<string>change Method(_Q10,0,N) to XQ10</string>
 					<key>Find</key>
 					<data>X1ExMAA=</data>
@@ -153,7 +161,10 @@
 		<key>SSDT</key>
 		<dict>
 			<key>Generate</key>
-			<false/>
+			<dict>
+				<key>PluginType</key>
+				<true/>
+			</dict>
 		</dict>
 	</dict>
 	<key>Boot</key>
