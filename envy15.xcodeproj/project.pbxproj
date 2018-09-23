@@ -9,12 +9,9 @@
 /* Begin PBXFileReference section */
 		840152EF182AE45E00D58B0A /* makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; path = makefile; sourceTree = "<group>"; usesTabs = 1; };
 		8406FCD6188627B8006D8DB7 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
-		ED4664C01B4F5FED00CC0F9D /* patch_backlight.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = patch_backlight.sh; sourceTree = "<group>"; };
-		ED4664C11B4F5FED00CC0F9D /* Backlight.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Backlight.plist; sourceTree = "<group>"; };
 		ED4664C31B4F60B300CC0F9D /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = USBXHC_Envy.kext/Contents/Info.plist; sourceTree = "<group>"; };
 		ED5124E41BF7F3B500ACDCDA /* SSDT-HACK.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "SSDT-HACK.dsl"; sourceTree = "<group>"; };
 		ED84A4551AE815E000897847 /* patch_hda.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = patch_hda.sh; sourceTree = "<group>"; };
-		ED84A4561AE815E000897847 /* mount_efi.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = mount_efi.sh; sourceTree = "<group>"; };
 		ED84A4571AE815E000897847 /* License.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = License.md; sourceTree = "<group>"; };
 		ED84A4581AE815E000897847 /* install_downloads.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = install_downloads.sh; sourceTree = "<group>"; };
 		ED84A4591AE815E000897847 /* download.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = download.sh; sourceTree = "<group>"; };
@@ -37,22 +34,11 @@
 				EDF68C13200515F800D2BAEE /* SSDT-USB-K1.dsl */,
 				EDF68C14200515F800D2BAEE /* SSDT-USB-K2.dsl */,
 				840152EF182AE45E00D58B0A /* makefile */,
-				ED84A4561AE815E000897847 /* mount_efi.sh */,
 				ED84A4591AE815E000897847 /* download.sh */,
 				ED84A4581AE815E000897847 /* install_downloads.sh */,
-				ED4664C21B4F609000CC0F9D /* USBXHC-Envy.kext */,
 				ED84A45E1AE8160700897847 /* audio */,
-				ED4664BF1B4F5FCF00CC0F9D /* backlight */,
+				ED4664C21B4F609000CC0F9D /* USBXHC-Envy.kext */,
 			);
-			sourceTree = "<group>";
-		};
-		ED4664BF1B4F5FCF00CC0F9D /* backlight */ = {
-			isa = PBXGroup;
-			children = (
-				ED4664C01B4F5FED00CC0F9D /* patch_backlight.sh */,
-				ED4664C11B4F5FED00CC0F9D /* Backlight.plist */,
-			);
-			name = backlight;
 			sourceTree = "<group>";
 		};
 		ED4664C21B4F609000CC0F9D /* USBXHC-Envy.kext */ = {
