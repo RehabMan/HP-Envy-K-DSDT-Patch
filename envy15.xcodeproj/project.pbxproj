@@ -11,7 +11,6 @@
 		8406FCD6188627B8006D8DB7 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		ED4664C31B4F60B300CC0F9D /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = USBXHC_Envy.kext/Contents/Info.plist; sourceTree = "<group>"; };
 		ED5124E41BF7F3B500ACDCDA /* SSDT-HACK.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "SSDT-HACK.dsl"; sourceTree = "<group>"; };
-		ED84A4551AE815E000897847 /* patch_hda.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = patch_hda.sh; sourceTree = "<group>"; };
 		ED84A4571AE815E000897847 /* License.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = License.md; sourceTree = "<group>"; };
 		ED84A4581AE815E000897847 /* install_downloads.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = install_downloads.sh; sourceTree = "<group>"; };
 		ED84A4591AE815E000897847 /* download.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = download.sh; sourceTree = "<group>"; };
@@ -52,7 +51,6 @@
 		ED84A45E1AE8160700897847 /* audio */ = {
 			isa = PBXGroup;
 			children = (
-				ED84A4551AE815E000897847 /* patch_hda.sh */,
 				EDAD789E1B4F144800667C12 /* ahhcd.plist */,
 				EDAD789D1B4F144800667C12 /* Platforms.plist */,
 				EDAD789C1B4F144800667C12 /* layout2.plist */,
